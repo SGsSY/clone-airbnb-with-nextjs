@@ -1,28 +1,32 @@
-import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
-import "./globals.css";
-import { Navbar } from "@/app/components/navbar/Navbar";
-import { RegisterModal } from "@/app/components/modals/RegisterModal";
-import { ToasterProvider } from "@/app/providers/ToasterProvider";
+import type { Metadata } from 'next';
+import { Nunito } from 'next/font/google';
+import './globals.css';
+import { Navbar } from '@/app/components/navbar/Navbar';
+import { RegisterModal } from '@/app/components/modals/RegisterModal';
+import { ToasterProvider } from '@/app/providers/ToasterProvider';
+import { LoginModal } from '@/app/components/modals/LoginModal';
+import { getCurrentUser } from '@/app/actions/getCurrentUser';
 
 export const metadata: Metadata = {
-    title: "Airbnb",
-    description: "Airbnb clone built with Next.js",
+    title: 'Airbnb',
+    description: 'Airbnb clone built with Next.js',
 };
 
-const font = Nunito({ subsets: ["latin"] });
+const font = Nunito({ subsets: ['latin'] });
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: {
     children: React.ReactNode;
 }) {
+    const currentUser = await getCurrentUser();
     return (
         <html lang='en'>
             <body className={font.className}>
                 <ToasterProvider />
                 <RegisterModal />
-                <Navbar />
+                <LoginModal />
+                <Navbar currentUser={currentUser} />
                 {children}
             </body>
         </html>
