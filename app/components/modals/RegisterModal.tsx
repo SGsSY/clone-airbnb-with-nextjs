@@ -5,6 +5,7 @@ import axios from 'axios';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { signIn } from 'next-auth/react';
 import { useRegisterModal } from '@/app/hooks/useRegisterModal';
 import { Modal } from '@/app/components/modals/Modal';
 import { Heading } from '@/app/components/modals/Heading';
@@ -33,7 +34,6 @@ export const RegisterModal = () => {
         try {
             const response = await axios.post('/api/register', data);
 
-            console.log(response);
             registerModal.onClose();
         } catch (error) {
             toast.error('Something went wrong, please try again.');
@@ -83,13 +83,13 @@ export const RegisterModal = () => {
                 outline={true}
                 label='Continue with Google'
                 icon={FcGoogle}
-                onClick={() => {}}
+                onClick={() => signIn('google')}
             />
             <Button
                 outline={true}
                 label='Continue with Github'
                 icon={AiFillGithub}
-                onClick={() => {}}
+                onClick={() => signIn('github')}
             />
             <div className='text-neutral-500 text-center mt-4 font-light'>
                 <div className='flex flex-row items-center justify-center gap-2'>
