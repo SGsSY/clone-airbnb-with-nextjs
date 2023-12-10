@@ -18,6 +18,13 @@ import { IoDiamond } from 'react-icons/io5';
 import { Container } from '@/app/components/Container';
 import { CategoryBox } from '@/app/components/CategoryBox';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { IconType } from 'react-icons';
+
+export type Category = {
+    label: string;
+    icon: IconType;
+    description: string;
+};
 
 export const categories = [
     {
