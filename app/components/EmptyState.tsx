@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Heading } from '@/app/components/modals/Heading';
+import { Heading } from '@/app/components/Heading';
 import { Button } from './Button';
 
 interface EmptyStateProps {

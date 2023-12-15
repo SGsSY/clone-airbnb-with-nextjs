@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { User } from '@prisma/client';
 import { useCountries } from '@/app/hooks/useCountries';
-import { Heading } from '@/app/components/modals/Heading';
+import { Heading } from '@/app/components/Heading';
 import { HeartButton } from '@/app/components/HeartButton';
 
 interface ListingHeadProps {

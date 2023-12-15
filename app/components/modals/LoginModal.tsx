@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 import { useLoginModal } from '@/app/hooks/useLoginModal';
 import { useRegisterModal } from '@/app/hooks/useRegisterModal';
 import { Modal } from '@/app/components/modals/Modal';
-import { Heading } from '@/app/components/modals/Heading';
+import { Heading } from '@/app/components/Heading';
 import { Input } from '@/app/components/inputs/Input';
 import toast from 'react-hot-toast';
 import { Button } from '../Button';
@@ -86,7 +86,7 @@ export const LoginModal = () => {
     );
 
     const footerContent = (
-        <div className='flex flex-col gap-4 mt-3'>
+        <div className='mt-3 flex flex-col gap-4'>
             <hr />
             <Button
                 outline={true}
@@ -100,12 +100,12 @@ export const LoginModal = () => {
                 icon={AiFillGithub}
                 onClick={() => signIn('github')}
             />
-            <div className='text-neutral-500 text-center mt-4 font-light'>
+            <div className='mt-4 text-center font-light text-neutral-500'>
                 <div className='flex flex-row items-center justify-center gap-2'>
                     <div>First time using Airbnb ?</div>
                     <div
                         onClick={toggle}
-                        className='text-neutral-800 cursor-pointer hover:underline'
+                        className='cursor-pointer text-neutral-800 hover:underline'
                     >
                         Create an account
                     </div>
