@@ -3,7 +3,7 @@ import { getCurrentUser } from '@/app/actions/getCurrentUser';
 import { getListings } from '@/app/actions/getListings';
 import { PropertiesClient } from '@/app/properties/PropertiesClient';
 
-export const PropertiesPage = async () => {
+const PropertiesPage = async () => {
     const currentUser = await getCurrentUser();
 
     if (!currentUser) {

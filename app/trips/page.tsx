@@ -3,7 +3,7 @@ import { getCurrentUser } from '@/app/actions/getCurrentUser';
 import { getReservations } from '@/app/actions/getReservations';
 import { TripsClient } from '@/app/trips/TripsClient';
 
-export const TripsPage = async () => {
+const TripsPage = async () => {
     const currentUser = await getCurrentUser();
 
     if (!currentUser) {
