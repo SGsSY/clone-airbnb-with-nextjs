@@ -6,6 +6,7 @@ import {
     getListings,
     IParams as IListingsParams,
 } from '@/app/actions/getListings';
+import { Listing } from '@prisma/client';
 
 interface HomeProps {
     searchParams: IListingsParams;
@@ -13,7 +14,7 @@ interface HomeProps {
 
 export default async function Home({ searchParams }: HomeProps) {
     const currentUser = await getCurrentUser();
-    const listings = await getListings();
+    const listings = await getListings(searchParams);
     const isEmpty = listings.length === 0;
 
     if (isEmpty) {
@@ -38,7 +39,7 @@ export default async function Home({ searchParams }: HomeProps) {
                     xl:grid-cols-5
                     2xl:grid-cols-6'
                 >
-                    {listings.map((listing: any) => {
+                    {listings.map((listing: Listing) => {
                         return (
                             <ListingCard
                                 key={listing.id}
